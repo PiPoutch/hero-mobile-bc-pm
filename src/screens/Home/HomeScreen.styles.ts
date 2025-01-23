@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export const HomeScreenStyles = StyleSheet.create({
   container: {
+    width: '100%',
     flex: 1,
   },
   safeArea: {
@@ -11,7 +12,7 @@ export const HomeScreenStyles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    alignItems: 'center',
+    paddingHorizontal: spacing.xl,
   },
   buttonContainer: {
     height: 50,
@@ -19,9 +20,10 @@ export const HomeScreenStyles = StyleSheet.create({
   },
   formContainer: {
     rowGap: spacing.l,
+    flex: 1,
   },
   heroLogoContainer: {
-    width: 336,
+    width: '100%',
     height: 129,
     justifyContent: 'center',
     alignItems: 'center',

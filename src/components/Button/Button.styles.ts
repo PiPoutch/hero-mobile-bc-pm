@@ -2,10 +2,12 @@ import { colors, radius, textColors } from '@theme';
 import { StyleSheet } from 'react-native';
 
 export const ButtonStyles = StyleSheet.create({
-    button: {
-        backgroundColor: colors.purple.darken,
+    gradient: {
         borderRadius: radius.xs,
         height: 50,
+    },
+    button: {
+        borderRadius: radius.xs,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -14,7 +16,7 @@ export const ButtonStyles = StyleSheet.create({
         backgroundColor: colors.purple.regular,
     },
     disabled: {
-        backgroundColor: colors.purple.regular,
+        opacity: 1,
     },
     buttonText: {
         color: textColors.default,
@@ -23,3 +25,5 @@ export const ButtonStyles = StyleSheet.create({
         color: textColors.disabled,
     },
 });
+
+export const gradientColors = [colors.purple.darken, colors.purple.regular] as const;

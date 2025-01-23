@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Alert } from "react-native";
 
 export function useHomeScreen() {
 const [selected, setSelected] = useState<[boolean, boolean, boolean]>([true, false, false]);
@@ -22,6 +23,13 @@ function clearForm() {
     setSelected([true, false, false]);
 }
 
+function showAlert() {
+    Alert.alert('Lien de paiement envoyé', `Votre lien de paiement d'un montant de ${amount} € a bien été envoyé au ${phone}.`, [
+
+        {text: 'OK'},
+    ]);
+}
+
 function handleSubmit() {
     if (isButtonDisabled) {
         return;
@@ -30,6 +38,7 @@ function handleSubmit() {
     setTimeout(() => {
         setIsLoading(false);
         clearForm();
+        showAlert();
     }, 2000);
 }
 

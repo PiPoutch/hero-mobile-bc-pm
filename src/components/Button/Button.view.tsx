@@ -1,6 +1,7 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { ActivityIndicator, Pressable, Text } from 'react-native';
-import { ButtonStyles as styles } from './Button.styles';
+import { ButtonStyles as styles, gradientColors } from './Button.styles';
 
 interface ButtonViewProps extends React.ComponentProps<typeof Pressable> {
   disabled?: boolean;
@@ -25,13 +26,20 @@ function ButtonView({ disabled, isLoading, title, ...props }: ButtonViewProps) {
   }
 
   return (
-    <Pressable style={({ pressed }) => [getStyle(pressed)]} {...props}>
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <Text style={getTextStyle()}>{title}</Text>
-      )}
-    </Pressable>
+    <LinearGradient
+      colors={gradientColors}
+      style={styles.gradient}
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 0 }}
+    >
+      <Pressable style={({ pressed }) => [getStyle(pressed)]} {...props}>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={getTextStyle()}>{title}</Text>
+        )}
+      </Pressable>
+    </LinearGradient>
   );
 }
 

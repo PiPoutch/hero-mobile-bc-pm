@@ -37,8 +37,8 @@ function HomeScreenView({
   return (
     <View style={styles.container}>
       <ImageBackground source={background} style={styles.background}>
-        <SafeAreaView>
-          <KeyboardAvoidingView style={styles.safeArea} behavior="padding">
+        <SafeAreaView style={styles.safeArea}>
+          <KeyboardAvoidingView style={styles.container} behavior="padding">
             <View style={styles.formContainer}>
               <View style={styles.heroLogoContainer}>
                 <Image source={heroLogo} style={styles.heroLogo} />
