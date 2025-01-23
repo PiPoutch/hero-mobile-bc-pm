@@ -1,4 +1,4 @@
-import { colors, radius } from '@theme';
+import { colors, radius, textColors } from '@theme';
 import { StyleSheet } from 'react-native';
 
 export const ButtonStyles = StyleSheet.create({
@@ -15,5 +15,11 @@ export const ButtonStyles = StyleSheet.create({
     },
     disabled: {
         backgroundColor: colors.purple.regular,
+    },
+    buttonText: {
+        color: textColors.default,
+    },
+    disabledText: {
+        color: textColors.disabled,
     },
 });

@@ -7,5 +7,6 @@ export const colors = {
   };
   
   export const textColors = {
-    default: '#3A3B3D',
+    default: '#FFFFFF',
+    disabled: '#8677B1',
   };

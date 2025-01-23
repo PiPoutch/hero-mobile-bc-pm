@@ -12,14 +12,26 @@ import heroLogo from '../../../assets/heroLogo.png';
 import { Button, Selectable, TextInput } from '@components';
 
 interface HomeScreenViewProps {
+  handleAmountChange: (text: string) => void;
+  handlePhoneChange: (text: string) => void;
   handleSelectablePress: (index: number) => void;
+  handleSubmit: () => void;
+  amount: string;
+  phone: string;
   isButtonDisabled: boolean;
+  isLoading: boolean;
   selected: boolean[];
 }
 
 function HomeScreenView({
+  handleAmountChange,
+  handlePhoneChange,
   handleSelectablePress,
+  handleSubmit,
+  amount,
+  phone,
   isButtonDisabled,
+  isLoading,
   selected,
 }: HomeScreenViewProps) {
   return (
@@ -31,10 +43,17 @@ function HomeScreenView({
               <View style={styles.heroLogoContainer}>
                 <Image source={heroLogo} style={styles.heroLogo} />
               </View>
-              <TextInput placeholder="Montant (€)" keyboardType="numeric" />
+              <TextInput
+                placeholder="Montant (€)"
+                keyboardType="numeric"
+                onChangeText={handleAmountChange}
+                value={amount}
+              />
               <TextInput
                 placeholder="Numéro de téléphone"
                 keyboardType="numeric"
+                onChangeText={handlePhoneChange}
+                value={phone}
               />
               <View style={styles.selectableContainer}>
                 <Selectable
@@ -55,7 +74,12 @@ function HomeScreenView({
               </View>
             </View>
             <View style={styles.buttonContainer}>
-              <Button title="Valider" disabled={isButtonDisabled} />
+              <Button
+                title="Envoyer le lien de paiement"
+                disabled={isButtonDisabled}
+                isLoading={isLoading}
+                onPress={handleSubmit}
+              />
             </View>
           </KeyboardAvoidingView>
         </SafeAreaView>

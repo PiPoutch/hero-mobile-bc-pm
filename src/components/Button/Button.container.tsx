@@ -5,11 +5,19 @@ import { ButtonView } from './Button.view';
 
 interface ButtonProps extends React.ComponentProps<typeof Pressable> {
   disabled?: boolean;
+  isLoading?: boolean;
   title: string;
 }
 
-function Button({ disabled, title, ...props }: ButtonProps) {
-  return <ButtonView disabled={disabled} title={title} {...props} />;
+function Button({ disabled, isLoading, title, ...props }: ButtonProps) {
+  return (
+    <ButtonView
+      disabled={disabled}
+      isLoading={isLoading}
+      title={title}
+      {...props}
+    />
+  );
 }
 
 export { Button };
