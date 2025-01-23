@@ -9,4 +9,8 @@ export const HomeScreenStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  heroLogoContainer: {
+    width: 336,
+    height: 129,
+  },
 });
