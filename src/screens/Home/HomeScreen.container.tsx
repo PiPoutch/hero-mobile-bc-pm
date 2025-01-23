@@ -3,10 +3,11 @@ import { useHomeScreen } from './HomeScreen.hook';
 import { HomeScreenView } from './HomeScreen.view';
 
 function HomeScreenContainer() {
-  const { handleSelectablePress, selected } = useHomeScreen();
+  const { handleSelectablePress, isButtonDisabled, selected } = useHomeScreen();
   return (
     <HomeScreenView
       handleSelectablePress={handleSelectablePress}
+      isButtonDisabled={isButtonDisabled}
       selected={selected}
     />
   );
